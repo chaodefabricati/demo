@@ -7,7 +7,7 @@ public class Person {
 	private String cpf;
 	private Character gender;
 	private String address;
-	private State state;
+	private City city;
 
 	// Get methods
 	
@@ -31,8 +31,8 @@ public class Person {
 		return this.address;
 	}
 
-	public State getState() {
-		return this.state;
+	public City getCity() {
+		return this.city;
 	}
 
 	// Set methods
@@ -57,7 +57,17 @@ public class Person {
 		this.address = address;
 	}
 
-	public void setState(State state) {
-		this.state = state;
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+	// Other methods
+
+	public String toString() {
+		return "NAME: " + this.name + "\n"
+			+ "CPF: " + this.cpf + "\n"
+			+ "GENDER: " + this.gender + "\n"
+			+ "ADDRESS: " + this.address + "\n"
+			+ "CITY: " + this.city.toString() + "\n";
 	}
 }
