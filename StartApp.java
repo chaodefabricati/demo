@@ -36,13 +36,22 @@ public class StartApp {
 		p1.setCpf("99001102010");
 		p1.setGender(new Character('M'));
 		p1.setAddress("AV CONTORNO, 1315");
-		p1.setCity(cityBeloHorizonte);
+		p1.setCity(cityJuazeiro);
 
-		System.out.println("*** START ***");
+		Person p2 = new Person();
+		p2.setName("Laiane Pedra");
+		p2.setCpf("99182291021");
+		p2.setGender(new Character('F'));
+		p2.setAddress("AV CONTORNO, 1315");
+		p2.setCity(cityJuazeiro);
+
+		System.out.println("*** START ***\n");
 				
 		System.out.println(p1.toString());
+		System.out.println("*************");
+		System.out.println(p2.toString());
 
-		System.out.println("*** FINISH ***");
+		System.out.println("*** FINISH ***\n");
 	}
 
 	private int nextIdCity() {
