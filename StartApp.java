@@ -1,4 +1,7 @@
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class StartApp {
 
 	private int idUF;
@@ -9,48 +12,51 @@ public class StartApp {
 
 		StartApp app = new StartApp();
 
-		// System.out.println("Hello World");
+		List<UF> listaUFs = new ArrayList<UF>();
+		List<City> listaCities = new ArrayList<City>();
+		List<Person> listaPersons = new ArrayList<Person>();
 		
-		UF ufBA = new UF("BA", "BAHIA");
-		UF ufPE = new UF("PE", "PERNAMBUCO");
-		UF ufMG = new UF("MG", "MINAS GERAIS");
+		listaUFs.add(new UF("BA", "BAHIA"));
+		listaUFs.add(new UF("PE", "PERNAMBUCO"));
+		listaUFs.add(new UF("MG", "MINAS GERAIS"));
+		listaUFs.add(new UF("RJ", "RIO DE JANEIRO"));
 
-		City cityJuazeiro = new City(app.nextIdCity(), "JUAZEIRO", ufBA);
-		City citySalvador = new City(app.nextIdCity(), "SALVADOR", ufBA);
-		City cityBonfim = new City(app.nextIdCity(), "SEHOR DO BONFIM", ufBA);
-		City cityFeira = new City(app.nextIdCity(), "FEIRA DE SANTANA", ufBA);
+		listaCities.add(new City(app.nextIdCity(), "JUAZEIRO", app.findUF(listaUFs,"BA")));
+		listaCities.add(new City(app.nextIdCity(), "SALVADOR", app.findUF(listaUFs,"BA")));
+		listaCities.add(new City(app.nextIdCity(), "SEHOR DO BONFIM", app.findUF(listaUFs,"BA")));
+		listaCities.add(new City(app.nextIdCity(), "FEIRA DE SANTANA", app.findUF(listaUFs,"BA")));
 
-		City cityPetrolina = new City(app.nextIdCity(), "PETROLINA", ufPE);
-		City cityRecife = new City(app.nextIdCity(), "RECIFE", ufPE);
-		City citySalgueiro = new City(app.nextIdCity(), "SALGUEIRO", ufPE);
-		City cityAraripina = new City(app.nextIdCity(), "ARARIPINA", ufPE);
+		listaCities.add(new City(app.nextIdCity(), "PETROLINA", app.findUF(listaUFs,"PE")));
+		listaCities.add(new City(app.nextIdCity(), "RECIFE", app.findUF(listaUFs,"PE")));
+		listaCities.add(new City(app.nextIdCity(), "SALGUEIRO", app.findUF(listaUFs,"PE")));
+		listaCities.add(new City(app.nextIdCity(), "ARARIPINA", app.findUF(listaUFs,"PE")));
 
-		City cityBeloHorizonte = new City(app.nextIdCity(), "BELO HORIZONTE", ufMG);
-		City cityContagem = new City(app.nextIdCity(), "CONTAGEM", ufMG);
-		City cityBetim = new City(app.nextIdCity(), "BETIM", ufMG);
-		City cityTimoteo = new City(app.nextIdCity(), "TIMOTEO", ufMG);
-		City cityUberlandia = new City(app.nextIdCity(), "UBERLANDIA", ufMG);
+		listaCities.add(new City(app.nextIdCity(), "BELO HORIZONTE", app.findUF(listaUFs,"MG")));
+		listaCities.add(new City(app.nextIdCity(), "CONTAGEM", app.findUF(listaUFs,"MG")));
+		listaCities.add(new City(app.nextIdCity(), "BETIM", app.findUF(listaUFs,"MG")));
+		listaCities.add(new City(app.nextIdCity(), "TIMOTEO", app.findUF(listaUFs,"MG")));
+		listaCities.add(new City(app.nextIdCity(), "UBERLANDIA", app.findUF(listaUFs,"MG")));
 
-		Person p1 = new Person();
-		p1.setName("Paulo Silvino");
-		p1.setCpf("99001102010");
-		p1.setGender(new Character('M'));
-		p1.setAddress("AV CONTORNO, 1315");
-		p1.setCity(cityJuazeiro);
+		listaCities.add(new City(app.nextIdCity(), "RIO DE JANEIRO", app.findUF(listaUFs,"RJ")));
 
-		Person p2 = new Person();
-		p2.setName("Laiane Pedra");
-		p2.setCpf("99182291021");
-		p2.setGender(new Character('F'));
-		p2.setAddress("AV CONTORNO, 1315");
-		p2.setCity(cityJuazeiro);
+		listaPersons.add(
+			new Person(app.nextIdPerson(),"Paulo Silvino","99001102010", new Character('M'), "AV CONTORNO, 1315", app.findCity(listaCities,"BELO HORIZONTE")));
+		listaPersons.add(
+			new Person(app.nextIdPerson(),"Laiane Pedra","99182291021", new Character('F'), "AV CONTORNO, 1315", app.findCity(listaCities,"BELO HORIZONTE")));
+		listaPersons.add(
+			new Person(app.nextIdPerson(),"Rodolfo Pereira","88192011920", new Character('M'), "RUA DAS ALGAROBAS", app.findCity(listaCities,"ARARIPINA")));
+		listaPersons.add(
+			new Person(app.nextIdPerson(),"Rosana Pereira","71882910110", new Character('F'), "RUA DAS ALGAROBAS", app.findCity(listaCities,"ARARIPINA")));
+		listaPersons.add(
+			new Person(app.nextIdPerson(),"Romero Brito","66192001920", new Character('M'), "AV CENTRAL", app.findCity(listaCities,"RIO DE JANEIRO")));
 
 		System.out.println("*** START ***\n");
 				
-		System.out.println(p1.toString());
-		System.out.println("*************");
-		System.out.println(p2.toString());
-
+		for (Person p : listaPersons) {
+			System.out.println(p.toString());
+			System.out.println("*************");
+		}
+		
 		System.out.println("*** FINISH ***\n");
 	}
 
@@ -60,6 +66,24 @@ public class StartApp {
 
 	private int nextIdPerson() {
 		return idPerson++;
+	}
+
+	private UF findUF(List<UF> lista, String cod) {
+		for (UF uf : lista) {
+			if (uf.getCod().equals(cod)) {
+				return uf;
+			}
+		}
+		return null;
+	}
+
+	private City findCity(List<City> lista, String name) {
+		for (City city : lista) {
+			if (city.getName().equals(name)) {
+				return city;
+			}
+		}
+		return null;
 	}
 
 }

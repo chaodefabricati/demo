@@ -9,6 +9,15 @@ public class Person {
 	private String address;
 	private City city;
 
+	public Person(int cod, String name, String cpf, Character gender, String address, City city) {
+		this.cod = cod;
+		this.name = name;
+		this.cpf = cpf;
+		this.gender = gender;
+		this.address = address;
+		this.city = city;
+	}
+
 	// Get methods
 	
 	public int getCod() {

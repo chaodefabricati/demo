@@ -5,6 +5,12 @@ public class Employee extends Person {
 	private String socialNumber;
 	private String pisNumber;
 
+	public Employee(int cod, String name, String cpf, Character gender, String address, City city, String socialNumber, String pisNumber) {
+		super(cod, name, cpf, gender, address, city);
+		this.socialNumber = socialNumber;
+		this.pisNumber = pisNumber;
+	}
+
 	public String getSocialNumber() {
 		return this.socialNumber;
 	}
