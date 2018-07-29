@@ -20,6 +20,7 @@ public class StartApp {
 		listaUFs.add(new UF("PE", "PERNAMBUCO"));
 		listaUFs.add(new UF("MG", "MINAS GERAIS"));
 		listaUFs.add(new UF("RJ", "RIO DE JANEIRO"));
+		listaUFs.add(new UF("SP", "SAO PAULO"));
 
 		listaCities.add(new City(app.nextIdCity(), "JUAZEIRO", app.findUF(listaUFs,"BA")));
 		listaCities.add(new City(app.nextIdCity(), "SALVADOR", app.findUF(listaUFs,"BA")));
@@ -39,6 +40,11 @@ public class StartApp {
 
 		listaCities.add(new City(app.nextIdCity(), "RIO DE JANEIRO", app.findUF(listaUFs,"RJ")));
 
+		listaCities.add(new City(app.nextIdCity(), "SAO PAULO", app.findUF(listaUFs,"SP")));
+		listaCities.add(new City(app.nextIdCity(), "SANTOS", app.findUF(listaUFs,"SP")));
+		listaCities.add(new City(app.nextIdCity(), "CAMPINAS", app.findUF(listaUFs,"SP")));
+
+
 		listaPersons.add(
 			new Person(app.nextIdPerson(),"Paulo Silvino","99001102010", new Character('M'), "AV CONTORNO, 1315", app.findCity(listaCities,"BELO HORIZONTE")));
 		listaPersons.add(
@@ -49,6 +55,15 @@ public class StartApp {
 			new Person(app.nextIdPerson(),"Rosana Pereira","71882910110", new Character('F'), "RUA DAS ALGAROBAS", app.findCity(listaCities,"ARARIPINA")));
 		listaPersons.add(
 			new Person(app.nextIdPerson(),"Romero Brito","66192001920", new Character('M'), "AV CENTRAL", app.findCity(listaCities,"RIO DE JANEIRO")));
+
+		// Added here from Lai
+		listaPersons.add(
+			new Person(app.nextIdPerson(),"Paulistano 1","81992010222", new Character('M'), "AV CENTRAL", app.findCity(listaCities,"SAO PAULO")));
+		listaPersons.add(
+			new Person(app.nextIdPerson(),"Paulistano 2","81992010222", new Character('M'), "AV CENTRAL", app.findCity(listaCities,"SAO PAULO")));
+		listaPersons.add(
+			new Person(app.nextIdPerson(),"Paulistano 3","81992010222", new Character('M'), "AV CENTRAL", app.findCity(listaCities,"SAO PAULO")));
+
 
 		System.out.println("*** START ***\n");
 				
