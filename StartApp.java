@@ -58,11 +58,11 @@ public class StartApp {
 
 		// Added here from Lai
 		listaPersons.add(
-			new Person(app.nextIdPerson(),"Paulistano 1","81992010222", new Character('M'), "AV CENTRAL", app.findCity(listaCities,"SAO PAULO")));
+			new Person(app.nextIdPerson(),"Paulistano 1","81992010222", new Character('M'), "AV PAULISTA", app.findCity(listaCities,"SAO PAULO")));
 		listaPersons.add(
-			new Person(app.nextIdPerson(),"Paulistano 2","81992010222", new Character('M'), "AV CENTRAL", app.findCity(listaCities,"SAO PAULO")));
+			new Person(app.nextIdPerson(),"Paulistano 2","81992010222", new Character('M'), "AV PAULISTA", app.findCity(listaCities,"SAO PAULO")));
 		listaPersons.add(
-			new Person(app.nextIdPerson(),"Paulistano 3","81992010222", new Character('M'), "AV CENTRAL", app.findCity(listaCities,"SAO PAULO")));
+			new Person(app.nextIdPerson(),"Paulistano 3","81992010222", new Character('M'), "AV PAULISTA", app.findCity(listaCities,"SAO PAULO")));
 
 
 		System.out.println("*** START ***\n");
